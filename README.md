@@ -58,8 +58,8 @@ REST API: каталог товаров с фильтрацией, пагина�
 
 ### Swagger
 
-- UI: **`GET /docs`**
-- JSON: **`GET /api/documentation`**
+- UI: **`GET /api/documentation`**
+- JSON: **`GET /docs`**
 - Генерация: `php artisan l5-swagger:generate`
 - Описание эндпоинтов и схем ошибок: `app/OpenApi/ApiDocumentation.php`
 
@@ -83,7 +83,7 @@ composer install
 ./vendor/bin/sail artisan migrate --seed
 ```
 
-Приложение и API обычно на `http://localhost` (порт см. `docker-compose` / Sail).
+Приложение и API обычно на `http://localhost` (порт см. compose.yml` / Sail).
 
 ## Локально без Docker
 
@@ -93,7 +93,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-В `.env` укажите доступный MySQL и **`CACHE_STORE=redis`** (или `array` / `database` для разработки без Redis). Для Sail в шаблоне `.env.example` задан `DB_HOST=mysql` — с хоста без Docker замените на `127.0.0.1` и свои креды.
+В `.env` укажите доступную БД и **`CACHE_STORE=redis`**. Для Sail в шаблоне `.env.example` задан `DB_HOST=mysql` — с хоста без Docker замените на `127.0.0.1` и свои креды.
 
 ```bash
 php artisan migrate --seed
